@@ -1,0 +1,66 @@
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.delete(2)
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.delete(2)
+```
+
+```shell
+curl --request POST \
+--url <%= config[:api_domain] %>/api/v2/api_system/products/{product_id}/download?token={your token}&customer_id={custome id}&secret={use your secret key}
+```
+<pre class="shell-or">OR</pre>
+```shell
+curl --request POST \
+  --url <%= config[:api_domain] %>/api/v2/api_system/products/{product_id}/download \
+    -d token={your token} \
+    -d customer_id={customer_id} \
+    -d secret={use your secret key}
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.delete(2);
+```
+
+> The above command returns JSON response containing download link for asset:
+
+```json
+  {
+    "data": {
+        "link": "your download link"
+    }
+}
+```
+
+Get full size download links for a specific product
+
+### HTTP Request
+
+<code class="http-request">
+  <span class="http-method-post">POST</span>
+  <%= config[:api_domain] %>/api/v2/api_system/products/__{product_id}__/download
+</code>
+
+### URL Parameters
+
+| Parameter  | Type   | Description                                      |
+|------------|--------|--------------------------------------------------|
+| product_id | string | Unique identifier for product  <br/> Example: 14 |
+
+### Query Parameters
+
+| Parameter       | Type   | Description                                                                                                                                     |
+|-----------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| __token__       | string | __(required)__ Use token provided to you                                                                                                        |
+| __customer_id__ | string | __(required)__ A unique identifier for the end user initiating this request <br/> Example: 123                                                  |
+| __secret__      | string | __(required)__ use secret key provided in response of <a href="<%= config[:api_documentation_domain] %>/#product-purchase">Product Purchase</a> |

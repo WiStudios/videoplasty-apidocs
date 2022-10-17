@@ -1,0 +1,425 @@
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get()
+```
+
+```shell
+curl --request GET \
+  --url <%= config[:api_domain] %>/api/v2/api_system/products?token={your token}&per_page=5
+```
+<pre class="shell-or">OR</pre>
+```shell
+curl --request GET \
+  --url <%= config[:api_domain] %>/api/v2/api_system/products \
+    -d token={your token} \
+    -d per_page=5
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+        {
+            "id": "19038",
+            "type": "product",
+            "attributes": {
+                "id": 19038,
+                "name": "Mary_Waving",
+                "slug": "mary_waving-19038",
+                "product_type": "animation",
+                "plp_preview_url": "https://dev-videoplasty-preview-storage.s3.amazonaws.com/previews/videoplasty-19038-mary_waving-stock-animation-plp.mp4",
+                "category": "Stock Animation"
+            },
+            "relationships": {
+                "images": {
+                    "data": [
+                        {
+                            "id": "41372",
+                            "type": "image"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "12",
+            "type": "product",
+            "attributes": {
+                "id": 12,
+                "name": "Picture Flat Icon",
+                "slug": "picture-flat-icon-12",
+                "product_type": "animation",
+                "plp_preview_url": null,
+                "category": "Stock Animation"
+            },
+            "relationships": {
+                "images": {
+                    "data": [
+                        {
+                            "id": "2881",
+                            "type": "image"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "6",
+            "type": "product",
+            "attributes": {
+                "id": 6,
+                "name": "Camping Bag Flat Icon",
+                "slug": "camping-bag-flat-icon-6",
+                "product_type": "animation",
+                "plp_preview_url": "https://cdn.videoplasty.com/previews/videoplasty-33884-new-year-pack-21-icons-stock-animation-plp.mp4",
+                "category": "Stock Animation"
+            },
+            "relationships": {
+                "images": {
+                    "data": [
+                        {
+                            "id": "5288",
+                            "type": "image"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "19002",
+            "type": "product",
+            "attributes": {
+                "id": 19002,
+                "name": "Saw Cutting",
+                "slug": "saw-cutting-19002",
+                "product_type": "animation",
+                "plp_preview_url": "https://dev-videoplasty-preview-storage.s3.amazonaws.com/previews/videoplasty-19002-saw-cutting-stock-animation-plp.mp4",
+                "category": "Stock Animation"
+            },
+            "relationships": {
+                "images": {
+                    "data": [
+                        {
+                            "id": "41301",
+                            "type": "image"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "15",
+            "type": "product",
+            "attributes": {
+                "id": 15,
+                "name": "Postcard Flat Icon",
+                "slug": "postcard-flat-icon-15",
+                "product_type": "animation",
+                "plp_preview_url": null,
+                "category": "Stock Animation"
+            },
+            "relationships": {
+                "images": {
+                    "data": [
+                        {
+                            "id": "2884",
+                            "type": "image"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "meta": {
+        "count": 5,
+        "total_count": 1254,
+        "total_pages": 251
+    },
+    "links": {
+        "self": "http://localhost:3000/api/v2/api_system/products?token=f41b711c7909b639ce72373021a7978e49672ecc5a97e11db224ec294aaa6ea8&per_page=5",
+        "next": "http://localhost:3000/api/v2/api_system/products?page=2&per_page=5",
+        "prev": "http://localhost:3000/api/v2/api_system/products?page=1&per_page=5",
+        "last": "http://localhost:3000/api/v2/api_system/products?page=251&per_page=5",
+        "first": "http://localhost:3000/api/v2/api_system/products?page=1&per_page=5"
+    },
+    "filters": {
+        "number-of-people": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "1",
+                    "doc_count": 1096
+                },
+                {
+                    "key": "2",
+                    "doc_count": 8
+                },
+                {
+                    "key": "3",
+                    "doc_count": 1
+                },
+                {
+                    "key": "6",
+                    "doc_count": 1
+                }
+            ],
+            "name": "Number of People",
+            "type": "integer"
+        },
+        "duration": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "10",
+                    "doc_count": 1138
+                },
+                {
+                    "key": "5",
+                    "doc_count": 60
+                },
+                {
+                    "key": "14",
+                    "doc_count": 2
+                },
+                {
+                    "key": "15",
+                    "doc_count": 1
+                },
+                {
+                    "key": "19",
+                    "doc_count": 1
+                },
+                {
+                    "key": "7",
+                    "doc_count": 1
+                }
+            ],
+            "name": "Duration",
+            "type": "duration"
+        },
+        "transparent-background": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "yes",
+                    "doc_count": 794
+                },
+                {
+                    "key": "no",
+                    "doc_count": 15
+                }
+            ],
+            "name": "Transparent Background",
+            "type": "boolean"
+        },
+        "gender": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "male",
+                    "doc_count": 635
+                },
+                {
+                    "key": "female",
+                    "doc_count": 459
+                }
+            ],
+            "name": "Gender",
+            "type": "multi-option"
+        },
+        "looping": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "yes",
+                    "doc_count": 1231
+                },
+                {
+                    "key": "no",
+                    "doc_count": 23
+                }
+            ],
+            "name": "Looping",
+            "type": "boolean"
+        },
+        "resolution-category": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "hd",
+                    "doc_count": 1041
+                },
+                {
+                    "key": "1080p",
+                    "doc_count": 190
+                },
+                {
+                    "key": "4k",
+                    "doc_count": 7
+                },
+                {
+                    "key": "sd",
+                    "doc_count": 1
+                }
+            ],
+            "name": "Resolution Category",
+            "type": "option"
+        },
+        "format": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "mov",
+                    "doc_count": 1247
+                },
+                {
+                    "key": "mp4",
+                    "doc_count": 9
+                }
+            ],
+            "name": "Format",
+            "type": "multi-option"
+        },
+        "range": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [],
+            "name": "Range",
+            "type": "range"
+        },
+        "encoding": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "png",
+                    "doc_count": 1244
+                },
+                {
+                    "key": "apple-prores-4444",
+                    "doc_count": 1238
+                },
+                {
+                    "key": "apple-prores-422",
+                    "doc_count": 7
+                },
+                {
+                    "key": "h-264",
+                    "doc_count": 4
+                }
+            ],
+            "name": "Encoding",
+            "type": "multi-option"
+        },
+        "resolution": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+                {
+                    "key": "1080x1080",
+                    "doc_count": 1048
+                },
+                {
+                    "key": "2160x2160",
+                    "doc_count": 7
+                },
+                {
+                    "key": "1280x720",
+                    "doc_count": 3
+                },
+                {
+                    "key": "640x360",
+                    "doc_count": 3
+                },
+                {
+                    "key": "1920x1080",
+                    "doc_count": 2
+                },
+                {
+                    "key": "960x960",
+                    "doc_count": 1
+                }
+            ],
+            "name": "Resolution",
+            "type": "text"
+        },
+        "bpm": {
+            "doc_count": 1254,
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [],
+            "name": "BPM",
+            "type": "text"
+        }
+    },
+    "suggestions": [],
+    "price": {
+        "min_price": "0.0",
+        "max_price": 100
+    }
+}
+```
+
+Returns a list of products for the current Store.
+
+### HTTP Request
+
+<code class="http-request">
+  <span class="http-method-get">GET</span>
+  <%= config[:api_domain] %>/api/v2/api_system/products
+</code>
+
+### Query Parameters
+
+| Parameter                                                        | Type    | Description                                                                                                                                                                                                                                   |
+|------------------------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| __token__                                                        | string  | __(required)__ Use token provided to you                                                                                                                                                                                                      |
+| <p class="nowrap">filter[properties][looping]</p>                | boolean | Values : yes or no                                                                                                                                                                                                                            |
+| <p class="nowrap">filter[properties][transparent-background]</p> | boolean | Values : yes or no                                                                                                                                                                                                                            |
+| <p class="nowrap">filter[properties][duration]</p>               | string  | Specify range for duration of asset. _note_: values are in seconds<br/> Value : _min_,_max_ &nbsp; Example: 11,14                                                                                                                             |
+| <p class="nowrap">filter[properties][number-of-people]</p>       | string  | Specify one or more comma separated values <br/>  Example: _3,4_ retrives products containing number-of-people 3 or 4                                                                                                                         |
+| <p class="nowrap">filter[properties][gender]</p>                 | string  | Specify one or more comma separated values <br/>  Possible values: male, female                                                                                                                                                               |
+| <p class="nowrap">filter[properties][resolution-category]</p>    | string  | Specify one or more comma separated values                                                                                                                                                                                                    |
+| <p class="nowrap">filter[properties][format]</p>                 | string  | Specify one or more comma separated values                                                                                                                                                                                                    |
+| <p class="nowrap">filter[properties][encoding]</p>               | string  | Specify one or more comma separated values                                                                                                                                                                                                    |
+| <p class="nowrap">filter[properties][resolution]</p>             | string  | Specify one or more comma separated values                                                                                                                                                                                                    |
+| <p class="nowrap">filter[properties][bpm]</p>                    | string  | Specify one or more comma separated values                                                                                                                                                                                                    |
+| include                                                          | string  | specify what related resources (relationships) you would like to receive in the response body <br/> i.e. images, product_properties, similar_products, similar_products.images                                                                |
+| include_extra_fields                                             | string  | specify extra fields you would like to receive in the response body <br/> i.e. description, tags                                                                                                                                              |
+| page                                                             | integer | Number of requested page when paginating collection <br/> Examples: 1                                                                                                                                                                         |
+| per_page                                                         | integer | Number of requested records per page when paginating collection <br/> 25                                                                                                                                                                      |
+| sort                                                             | string  | Use __"-"__ to sort in descending order <br/> Sort products based on: <br/> <ul style="margin:0"> <li>price (ascending)<br/>-price (descending)</li> <li>created_at (ascending)<br/>-created_at (descending)</li> <li>best-selling</li> </ul> |

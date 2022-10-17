@@ -1,0 +1,151 @@
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```shell
+curl --request GET \
+  --url <%= config[:api_domain] %>/api/v2/api_system/products/{product_id}?token={your token}
+```
+<pre class="shell-or">OR</pre>
+```shell
+curl --request GET \
+  --url <%= config[:api_domain] %>/api/v2/api_system/products/{product_id} \
+    -d token={your token}
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "id": "19038",
+        "type": "product",
+        "attributes": {
+            "id": 19038,
+            "name": "Mary_Waving",
+            "slug": "mary_waving-19038",
+            "product_type": "animation",
+            "pdp_preview_url": "https://dev-videoplasty-preview-storage.s3.amazonaws.com/previews/videoplasty-19038-mary_waving-stock-animation-pdp.mp4",
+            "category": "Stock Animation",
+            "description": "lorem ipsum lorem ipsum",
+            "tags": [
+                "fdasfas",
+                "hrjw",
+                "treqtewqrew",
+                "431",
+                "gagfdgf",
+                "dsagadsgasd",
+                "hgfdhgfhda",
+                "gadfgdsagfsd",
+                "hfdahfadgasfg",
+                "sdgadsgsad",
+                "hgsfhgfhsfghgfs",
+                "ytwryerwtwer"
+            ]
+        },
+        "relationships": {
+            "product_properties": {
+                "data": [
+                    {
+                        "id": "208942",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "208943",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "208944",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "208945",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "208946",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "208947",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "208948",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "209014",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "209015",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "209016",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "209017",
+                        "type": "product_property"
+                    },
+                    {
+                        "id": "209875",
+                        "type": "product_property"
+                    }
+                ]
+            },
+            "images": {
+                "data": [
+                    {
+                        "id": "41372",
+                        "type": "image"
+                    }
+                ]
+            },
+            "similar_products": {}
+        }
+    }
+}
+```
+
+Returns Product details.
+
+### HTTP Request
+
+<code class="http-request">
+  <span class="http-method-get">GET</span>
+  <%= config[:api_domain] %>/api/v2/api_system/products/__{product_id}__
+</code>
+
+### URL Parameters
+
+| Parameter  | Type       | Description                                      |
+|------------|------------|--------------------------------------------------|
+| product_id | string     | Unique identifier for product <br/> Example: 14  |
+
+
+### Query Parameters
+
+| Parameter  | Type     | Description                                                                                                                          |
+|------------|----------|--------------------------------------------------------------------------------------------------------------------------------------|
+| __token__  | string   | __(required)__ Use token provided to you                                                                                             |
+| include    | string   | Specify what related resources (relationships) you would like to receive in the response body. <br/> i.e. images, product_properties |

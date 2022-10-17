@@ -1,0 +1,65 @@
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get()
+```
+
+```shell
+curl --request POST \
+--url <%= config[:api_domain] %>/api/v2/api_system/products/{product_id}/purchase?token={your token}&customer_id={custome id}
+```
+<pre class="shell-or">OR</pre>
+```shell
+curl --request POST \
+--url <%= config[:api_domain] %>/api/v2/api_system/products/{product_id}/purchase \
+  -d token={your token} \
+  -d customer_id={custome id}
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": {
+        "Download 1": "secret_key_1",
+        "Download 2": "secret_key_2"
+    }
+}
+```
+
+Returns a list of available asset's secret key for specific product. Use this secret key to get <a href="http://192.168.1.120:4567/?shell#download-a-product">download links</a> for asset.
+
+### HTTP Request
+
+<code class="http-request">
+  <span class="http-method-post">POST</span>
+  <%= config[:api_domain] %>/api/v2/api_system/products/__{product_id}__/purchase
+</code>
+
+### URL Parameters
+
+| Parameter  | Type      | Description                                     |
+|------------|-----------|-------------------------------------------------|
+| product_id | string    | Unique identifier for product <br/> Example: 14 |
+
+### Query Parameters
+
+| Parameter       | Type     | Description                                                                                    |
+|-----------------|----------|------------------------------------------------------------------------------------------------|
+| __token__       | string   | __(required)__ Use token provided to you                                                       |
+| __customer_id__ | string   | __(required)__ A unique identifier for the end user initiating this request <br/> Example: 123 |
