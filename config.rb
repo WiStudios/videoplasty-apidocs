@@ -21,7 +21,8 @@ set :images_dir, 'images'
 set :fonts_dir, 'fonts'
 
 # Global Variables
-set :api_domain, 'https://developers.videoplasty.com'
+set :api_domain, 'https://api.videoplasty.com'
+set :api_developer_domain, 'https://developers.videoplasty.com'
 set :api_documentation_domain, 'https://developers.videoplasty.com/docs'
 
 # Activate the syntax highlighter

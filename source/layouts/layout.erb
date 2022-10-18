@@ -111,7 +111,7 @@ under the License.
       </ul>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
-          <li><%= link_to 'Get your API-Key / Token', config[:api_domain] %></li>
+          <li><%= link_to 'Get your API-Key / Token', config[:api_developer_domain], target: :_blank %></li>
           <% current_page.data.toc_footers.each do |footer| %>
             <li><%= footer %></li>
           <% end %>
