@@ -24,6 +24,7 @@ set :fonts_dir, 'fonts'
 set :api_domain, 'https://api.videoplasty.com'
 set :api_developer_domain, 'https://developers.videoplasty.com'
 set :api_documentation_domain, 'https://developers.videoplasty.com/docs'
+set :postman_sample, '/'
 
 # Activate the syntax highlighter
 activate :syntax

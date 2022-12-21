@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "5ffe235c-826a-404c-9b09-3a71a39f6c46",
+		"name": "API System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22583424"
+	},
+	"item": [
+		{
+			"name": "Product Listing API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SITE_URL}}/api/v2/api_system/products?token={{TOKEN}}&include=images",
+					"host": [
+						"{{SITE_URL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"api_system",
+						"products"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"description": "(required) Use token provided to you"
+						},
+						{
+							"key": "include",
+							"value": "images",
+							"description": "Specify what related resources (relationships) you would like to receive in the response body\ni.e. images"
+						},
+						{
+							"key": "include_extra_fields",
+							"value": "duration,resolution_category",
+							"description": "Specify extra fields you would like to receive in the response body\ni.e. description, duration, resolution_category, tags",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "price",
+							"description": "Use \"-\" to sort in descending order\nSort products based on:\nprice (ascending)\n-price (descending)\ncreated_at (ascending)\n-created_at (descending)\nbest-selling",
+							"disabled": true
+						},
+						{
+							"key": "per_page",
+							"value": "2",
+							"description": "Number of requested records per page when paginating collection\n25",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Number of requested page when paginating collection\nExamples: 1",
+							"disabled": true
+						},
+						{
+							"key": "filter[ids]",
+							"value": "17788,4501",
+							"description": "Comma seperated ids",
+							"disabled": true
+						},
+						{
+							"key": "filter[category]",
+							"value": "stock-animation",
+							"description": "Category permalink",
+							"disabled": true
+						},
+						{
+							"key": "filter[name]",
+							"value": "Hand",
+							"description": "Search query",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][number-of-people]",
+							"value": "1",
+							"description": "Comma seperated values",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][duration]",
+							"value": "17,20",
+							"description": "Minimum and Maximum",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][transparent-background]",
+							"value": "yes",
+							"description": "yes or no",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][gender]",
+							"value": "male",
+							"description": "Comma seperated values",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][looping]",
+							"value": "yes",
+							"description": "yes or no",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][format]",
+							"value": "mov",
+							"description": "Comma seperated values",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][resolution-category]",
+							"value": "4k",
+							"description": "Comma seperated values",
+							"disabled": true
+						},
+						{
+							"key": "filter[properties][encoding]",
+							"value": "apple-prores-4444",
+							"description": "Comma seperated values",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Detail API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SITE_URL}}/api/v2/api_system/products/4501?token={{TOKEN}}&include=images,product_properties,similar_products,similar_products.images",
+					"host": [
+						"{{SITE_URL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"api_system",
+						"products",
+						"4501"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"description": "(required) Use token provided to you"
+						},
+						{
+							"key": "include",
+							"value": "images,product_properties,similar_products,similar_products.images",
+							"description": "Specify what related resources (relationships) you would like to receive in the response body.\ni.e. images, product_properties, similar_products, similar_products.images"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Purchase API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{SITE_URL}}/api/v2/api_system/products/4501/purchase?token={{TOKEN}}&customer_id=123",
+					"host": [
+						"{{SITE_URL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"api_system",
+						"products",
+						"4501",
+						"purchase"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"description": "(required) Use token provided to you"
+						},
+						{
+							"key": "customer_id",
+							"value": "123",
+							"description": "(required) A unique identifier for the end user initiating this request\nExample: 123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Download API",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{SITE_URL}}/api/v2/api_system/products/4501/download?token={{TOKEN}}&customer_id=123&secret=fdd986a38c58f49ec99b3182750a84",
+					"host": [
+						"{{SITE_URL}}"
+					],
+					"path": [
+						"api",
+						"v2",
+						"api_system",
+						"products",
+						"4501",
+						"download"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"description": "(required) Use token provided to you"
+						},
+						{
+							"key": "customer_id",
+							"value": "123",
+							"description": "(required) A unique identifier for the end user initiating this request\nExample: 123"
+						},
+						{
+							"key": "secret",
+							"value": "fdd986a38c58f49ec99b3182750a84",
+							"description": "(required) use secret key provided in response of Product Purchase"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "SITE_URL",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "c0ac6e7e59d9c3cb8278530fa59fe34587758b4bc59c6d2ad5abd9c89d711945"
+		},
+		{
+			"key": "SITE_URL",
+			"value": "https://api.videoplasty.com",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "TOKEN",
+			"value": "85437b030efbff1b9ac4750d71c364fb94e64841e325df7e9bb3af6506e7a1bc",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
