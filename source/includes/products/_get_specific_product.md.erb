@@ -44,7 +44,6 @@ let max = api.kittens.get(2);
             "product_type": "animation",
             "pdp_preview_url": "https://videoplasty-storage-production.s3.amazonaws.com/previews/videoplasty-17788-hand-holding-leaf-stock-animation-pdp.mp4",
             "category": "Stock Animation",
-            "description": "Hand holding a bit of soil with leaves coming out of it",
             "tags": [
                 "green",
                 "hope",
@@ -149,7 +148,8 @@ Returns product details based on its unique product ID.
 
 ### Query Parameters
 
-| Parameter  | Type     | Description                                                                                                                            |
-|------------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| __token__  | string   | __(required)__ Use token provided to you                                                                                               |
-| include    | string   | Specify what related resources (relationships) you would like to receive in the response body. <br/> i.e. images, product_properties, similar_products, similar_products.images |
+| Parameter   | Type     | Description                                                                                                                                                                                                                                                                                                                            |
+|-------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| __token__   | string   | __(required)__ Use token provided to you                                                                                                                                                                                                                                                                                               |
+| include     | string   | Specify what related resources (relationships) you would like to receive in the response body. <br/> i.e. images, product_properties, similar_products, similar_products.images                                                                                                                                                        |
+| locale      | string   | Specify locale to get response in specific language. Default language is English. <br /> Available languages are `de, fr, es, pt, ja` <br /> Example: locale=es <br /> Note: only name and tags of product will be translated to specified language and in case if translation is unavailable it will be returned in english language. |
